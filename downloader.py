@@ -7,7 +7,7 @@ def path():
 
 
 def download_url():
-    url = r"https://czbooks.net/n/cpg8h35"
+    url = r"https://czbooks.net/n/cpgckpm"
     return url
 
 
@@ -91,6 +91,7 @@ def get_chapter_content(url):
     for ln in get_chapter(url):
         if ln.find(up_mark) > 0:
             skip = False
+            chapter_content.append(ln)
             continue
         if skip == True:
             continue
@@ -106,6 +107,8 @@ def layout(content):
     for ln in content:
         ln = ln.replace("\n", "")
         ln = ln.replace("<br />", "")
+        ln = ln.replace(" <div class = \"content\">", "")
+        ln = ln.replace(" ", "")
         if ln != "":
             result.append(ln)
     return result
