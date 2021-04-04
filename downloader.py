@@ -7,7 +7,7 @@ def path():
 
 
 def download_url():
-    url = r"https://czbooks.net/n/cpgckpm"
+    url = r"https://czbooks.net/n/ai164db"
     return url
 
 
@@ -97,6 +97,7 @@ def get_chapter_content(url):
             continue
         if ln.find(dn_mark) > 0:
             skip = True
+            chapter_content.append(ln)
             continue
         chapter_content.append(ln)
     return chapter_content
